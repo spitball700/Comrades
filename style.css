@@ -1,0 +1,500 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Verdana;
+}
+
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+/*CHANGE VISITED LINK UNDERLINE COLOR*/
+#container a:visited{
+    text-decoration-color:rgb(255, 60, 206);
+}
+
+/* Mobile - 0px */
+@media only screen and (min-width: 0rem) { 
+            #header {
+                width: 100%;
+                height: clamp(4.063rem, 2.037rem + 10.127vw, 14.063rem);
+                background-color: #5e4e8c;
+                /* this is only for a background image! */
+                /* if you want to put images IN the header, 
+                you can add them directly to the <div id="header"></div> element! */
+                background-image: var(--header-image);
+                background-size: 100%;
+            }
+
+            /* block makes elements stack vertically, more optimized for mobile */
+            #flex {
+                display: block;
+            }
+
+            /* this colors BOTH sidebars
+    if you want to style them separately,
+    create styles for #leftSidebar and #rightSidebar */
+            aside {
+                background-color: #00005a;
+                padding: 20px;
+                font-size: smaller;
+                /* this makes the sidebar text slightly smaller */
+            }
+
+
+            /* this is the color of the main content area,
+    between the sidebars! */
+            main {
+                background-color: #002370;
+                flex: 1;
+                padding: 20px;
+            }
+
+            /* what's this "order" stuff about??
+    allow me to explain!
+    if you're using both sidebars, the "order" value
+    tells the CSS the order in which to display them.
+    left sidebar is 1, content is 2, and right sidebar is 3! */
+
+            #leftSidebar {
+                order: 1;
+                display: block;
+                gap: 1rem;
+            }    
+
+            /* make "Updates" h2 invisible on mobile for spacing */
+            #leftSidebar .updates {
+                display: none;
+            }
+
+            /* make tools section invisible on mobile for spacing */
+            #leftSidebar .tools {
+                display: none;
+            }
+
+            #rightSidebar {
+                order: 3;
+            }
+
+            footer {
+                background-color: #13092D;
+                /* background color for footer */
+                width: 100%;
+                height: 40px;
+                padding: 10px;
+                text-align: center;
+                /* this centers the footer text */
+            }
+
+            /* this is just a cool box, it's the darker colored one */
+            .box {
+                background-color: #090932;
+                border: 1px solid #00ffb3;
+                padding: 10px;
+            }
+
+            /* CSS for extras */
+
+            #topBar {
+                width: 100%;
+                height: 30px;
+                padding: 10px;
+                font-size: smaller;
+                background-color: #13092D;
+            }
+
+}
+
+/* Small Desktop - 800px */
+@media only screen and (min-width: 800px) { 
+
+    /* flex returns elements to a side by side orientation */
+    #flex {
+        display: flex;
+    }
+
+    aside {
+        width: 200px;
+    }
+
+    #leftSidebar {
+        order: 1;
+        display: block;
+    }
+
+    /* return "updates" h2 to visible */
+    #leftSidebar .updates {
+        display: flex;
+    }
+
+    /* return tools section to visible */
+    #leftSidebar .tools {
+        display: block;
+    }
+
+    main {
+        order: 2;
+    }
+    
+    #header {
+        height: 11rem;
+    }
+
+}
+
+
+/*-- -------------------------- -->
+<---     Mobile Navigation      -->
+<--- -------------------------- -*/
+
+body,
+html {
+    /* reset margin and padding so there's no gap between the nav and the screen edges */
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile - 800px */
+@media only screen and (max-width: 50rem) {
+    body.cs-open {
+        overflow: hidden;
+    }
+    #navigation {
+        width: 100%;
+        padding: 1rem;
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        background-color: #090932;
+        position: relative;
+/*        z-index: 100;*/
+        z-index: 0;
+    }
+    #navigation:after {
+        /* on hover pink bar */
+        content: "";
+        width: 40%;
+        max-width: 9.125rem;
+        height: 100%;
+        background: var(--primary);
+        opacity: 1;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0%;
+        z-index: -1;
+        transition:
+            width 0.2s,
+            max-width 0.3s,
+            background-color 0.3s;
+    }
+    #navigation:before {
+        /* blurrd overlay */
+        content: "";
+        width: 100%;
+        height: 0vh;
+        background: rgba(0, 0, 0, 0.6);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        position: absolute;
+        display: block;
+        top: 100%;
+        right: 0;
+        z-index: -11;
+        transition:
+            height 0.5s,
+            opacity 0.3s;
+    }
+    #navigation.cs-active:after {
+        width: 100%;
+        max-width: 100%;
+        background-color: #00ffb3;
+    }
+    #navigation.cs-active:before {
+        height: 150vh;
+        opacity: 1;
+    }
+    #navigation.cs-active .cs-ul-wrapper {
+        opacity: 1;
+        transform: scaleY(1);
+        transition-delay: 0.2s;
+    }
+    #navigation.cs-active .li {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    #navigation .cs-logo {
+        width: 40%;
+        max-width: 9.125rem;
+        height: 100%;
+        padding: 0.75rem 1rem;
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+    #navigation .cs-logo img {
+        width: 100%;
+        height: 100%;
+        /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+        object-fit: contain;
+    }
+    #navigation .cs-toggle {
+        /* 44px - 48px */
+        width: clamp(2.75rem, 6vw, 3rem);
+        height: clamp(2.75rem, 6vw, 3rem);
+        margin: 0 0 0 auto;
+        border-radius: 0.25rem;
+        background-color: #00ffb3;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #navigation .cs-active .line1 {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(225deg);
+    }
+    #navigation .cs-active .line2 {
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+    }
+    #navigation .cs-active .line3 {
+        bottom: 100%;
+        opacity: 0;
+    }
+    #navigation .cs-box {
+        /* 24px - 28px */
+        width: clamp(1.5rem, 2vw, 1.75rem);
+        /* 14px - 16px */
+        height: clamp(0.875rem, 1.5vw, 1rem);
+        position: relative;
+    }
+    #navigation .line {
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #navigation .line1 {
+        top: 0;
+        transform-origin: center;
+        transition:
+            transform 0.5s,
+            top 0.3s,
+            left 0.3s;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+    }
+    #navigation .line2 {
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        transition:
+            top 0.3s,
+            left 0.3s,
+            transform 0.5s;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+    }
+    #navigation .line3 {
+        bottom: 0;
+        transition:
+            bottom 0.3s,
+            opacity 0.3s;
+    }
+    #navigation .cs-ul-wrapper {
+        width: 100%;
+        opacity: 0;
+        background-color: #13092D;
+        box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: -1;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition:
+            transform 0.4s,
+            opacity 0.3s;
+    }
+    #navigation .cs-ul {
+        margin: 0;
+        padding: 3rem 0 3rem 0;
+        width: 100%;
+        height: auto;
+        max-height: 65vh;
+        overflow: scroll;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+    #navigation .li {
+        text-align: center;
+        list-style: none;
+        margin-right: 0;
+        /* transition from these values */
+        transform: translateY(-4.375rem);
+        opacity: 0;
+        transition:
+            transform 0.6s,
+            opacity 0.9s;
+    }
+    #navigation .li:nth-of-type(1) {
+        transition-delay: 0.05s;
+    }
+    #navigation .li:nth-of-type(2) {
+        transition-delay: 0.1s;
+    }
+    #navigation .li:nth-of-type(3) {
+        transition-delay: 0.15s;
+    }
+    #navigation .li:nth-of-type(4) {
+        transition-delay: 0.2s;
+    }
+    #navigation .li:nth-of-type(5) {
+        transition-delay: 0.25s;
+    }
+    #navigation .li:nth-of-type(6) {
+        transition-delay: 0.3s;
+    }
+    #navigation .li:nth-of-type(7) {
+        transition-delay: 0.35s;
+    }
+    #navigation .li:nth-of-type(8) {
+        transition-delay: 0.4s;
+    }
+    #navigation .li:nth-of-type(9) {
+        transition-delay: 0.45s;
+    }
+    #navigation .li:nth-of-type(10) {
+        transition-delay: 0.5s;
+    }
+    #navigation .li:nth-of-type(11) {
+        transition-delay: 0.55s;
+    }
+    #navigation .li:nth-of-type(12) {
+        transition-delay: 0.6s;
+    }
+    #navigation .li:nth-of-type(13) {
+        transition-delay: 0.65s;
+    }
+    #navigation .li-link {
+        /* 16px - 24px */
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        line-height: 1.2em;
+        text-decoration: none;
+        margin: 0;
+        color: #00ffb3;
+        display: inline-block;
+        position: relative;
+    }
+    #navigation .li-link:before {
+        /* active state underline */
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        opacity: 1;
+        position: absolute;
+        display: none;
+        bottom: -0.125rem;
+        left: 0;
+    }
+    #navigation .li-link.cs-active:before {
+        display: block;
+    }
+}
+
+/*-- -------------------------- -->
+<---     Desktop Navigation     -->
+<--- -------------------------- -*/
+
+/* Small Desktop - 801px */
+@media only screen and (min-width: 50.01rem) {
+    #navigation {
+        width: 100%;
+        /* 23px - 420px */
+        padding: 1rem;
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        background-color: #090932;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+/*        z-index: 998;*/
+        z-index: 0;
+    }
+    #navigation .cs-toggle {
+        display: none;
+    }
+    #navigation .cs-nav {
+      margin: auto;
+    }
+    #navigation .cs-ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        /* 20px - 36px */
+        gap: clamp(1.25rem, 2.6vw, 2.25rem);
+    }
+    #navigation .li {
+        list-style: none;
+        padding: .5rem 0;
+        /* prevent flexbox from squishing it */
+        flex: none;
+    }
+    #navigation .li:last-of-type {
+        /* pushes the button to the far right */
+        margin-left: auto;
+    }
+    #navigation .li-link {
+        /* 16px - 24px */
+        font-size: clamp(1rem, 0.899rem + 0.506vw, 1.5rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        margin: 0;
+        color: #00ffb3;
+        display: block;
+        position: relative;
+    }
+    #navigation .li-link:hover:before {
+        width: 100%;
+    }
+    #navigation .li-link.cs-active:before {
+        width: 100%;
+    }
+    #navigation .li-link:before {
+        /* active state underline */
+        content: "";
+        width: 0%;
+        height: 2px;
+        background: var(--primary);
+        opacity: 1;
+        position: absolute;
+        display: block;
+        bottom: 0rem;
+        left: 0;
+        transition: width 0.3s;
+    }
+}
+

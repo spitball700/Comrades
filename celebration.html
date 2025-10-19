@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- standard meta tags -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- this makes the page scale across screen sizes -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Comrades of Cassie Candles">
+
+        <!--Social Media Display--> <!-- this effects how links to your site look-->
+        <!-- site title here -->
+        <meta property="og:title" content="Comrades of Cassie Candles" />
+        <!-- site description here -->
+        <meta property="og:description" content="Website for the works of the friends of Cassie Candles" />
+        <meta property="og:type" content="website" />
+        <!-- site url here -->
+        <meta property="og:url" content="comradesofcassiecandles.org" />
+        <!-- thumbmnail that shows up when linking your site, just a screenshot hosted on imgur will work -->
+        <meta property="og:image" content="" />
+        <!-- same as above -->
+        <meta property="og:image:secure_url" content="" />
+
+        <!--Favicons-->
+
+        <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+        <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg" />
+        <link rel="shortcut icon" href="favicons/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png" />
+        <link rel="manifest" href="favicons/site.webmanifest" />
+
+        <!-- Preloads. This tells the browser what items you want to load first, like fonts, logos, and background images -->
+        <link rel="preload" as="image" href="/starbub2.jpeg"/>
+        <link rel="preload" as="image" href="/Banner.png"/>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="/style.css">
+        <style>        
+        ul a:link{
+          text-decoration:none;
+        }
+        ul a:hover{
+          text-decoration:underline;
+        }
+        </style>
+
+        <!-- Scripts -->
+        <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+        <script>
+          window.addEventListener("load", (event) => {
+            new cursoreffects.ghostCursor();
+          });
+        </script>
+    </head>
+  <body>
+
+        <div id="container">
+            
+            <div id="headerArea">
+                <!-- converts "Cassie Candles" image into link to home page -->
+                <a href="/index.html" title="I know it's spelt wrong, deal with it!">
+                    <div id="header"></div>
+                </a>
+
+<!---------------------->
+<!--    Navigation    -->
+<!---------------------->
+
+<header id="navigation">
+    <!--Navigation List-->
+    <nav class="cs-nav" role="navigation">
+        <!--Mobile Nav Toggle-->
+        <button class="cs-toggle" aria-label="mobile menu toggle">
+            <div class="cs-box" aria-hidden="true">
+                <span class="line line1" aria-hidden="true"></span>
+                <span class="line line2" aria-hidden="true"></span>
+                <span class="line line3" aria-hidden="true"></span>
+            </div>
+        </button>
+        <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+        <div class="cs-ul-wrapper">
+            <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                <li class="li">
+                    <a href="/index.html" class="li-link" title="main page">
+                        Home
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="/manifesto.html" class="li-link" title="what it's all about">
+                        Manifesto
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="/members.html" class="li-link" title="list of friends">
+                        Members
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="/cd.html" class="li-link" title="listen">
+                        Compilation CDs
+                    </a>
+                </li>
+                <li class="li">
+                    <a href="/celebration.html" class="li-link cs-active" title="our gathering">
+                        Celebration
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div id="flex">
+
+                <main>
+                    <h1 style="font-size:270%">Comrades' Celebration</h1>
+                    <h3 style="color: #ed4fa1">I would like to host a gathering c:</h3>
+                    
+                    <p style="text-indent:1.5em">I don't know where yet, but I'm pretty good at being resourceful and making friends!  This annual festival (and the planning of it) most likely won't happen til I have a more significant amount of members.</p>
+
+                    <p style="text-indent:1.5em">Though I've gone to musical gatherings for "friends of X" before, and it's such a great vibe!  I know I can pull it off X)</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+                </main>                             
+            </div>
+</div>
+
+
+
+        <!-- THIS IS THE CSS !-->
+        <style>
+            /* user styles */
+
+            /* styles are what change the color and sizes of stuff on your site. */
+
+            /* these are variables that are being used in the code
+    these tended to confuse some people, so I only kept 
+    the images as variables */
+
+            :root {
+                --header-image: url('/Banner.png');
+                --body-bg-image: url('/starbub2.jpeg');
+
+                /* colors */
+                --content: #430000;                
+            }
+
+            h1,
+            h2,
+            h3 {
+                color: #00ffb3;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            p,
+            li,
+            a {
+                font-size: clamp(1rem, 0.949rem + 0.253vw, 1.25rem);
+            }
+
+            strong {
+                /* this styles bold text */
+                color: #00ffb3;
+            }
+
+            /* if you have the URL of a font, you can set it below */
+            /* feel free to delete this if it's not your vibe */
+
+            /* this seems like a lot for just one font and I would have to agree 
+    but I wanted to include an example of how to include a custom font.
+    If you download a font file you can upload it onto your Neocities
+    and then link it! Many fonts have separate files for each style
+    (bold, italic, etc. T_T) which is why there are so many!
+    
+    */
+
+            @font-face {
+                font-family: Averia; /*oh yeah, its totally not Averia, but i dont wanna fuck shit up*/
+                src: url('unifont.otf');
+            }
+
+            @font-face {
+                font-family: Averia;
+                src: url('Cthulhumbus- Arcade.otf');
+                font-weight: bold;
+            }
+
+            @font-face {
+                font-family: Averia;
+                src: url('Cthulhumbus- Arcade.otf');
+                font-style: italic;
+                font-weight: bold;
+            }
+
+            body {
+                font-family: 'Averia', sans-serif;
+                margin: 0;
+                background-color: #08031A;
+                /* you can delete the line below if you'd prefer to not use an image */
+                background-size: 67px;
+                color: #bbffeb;
+                background-image: var(--body-bg-image);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            /* below this line is CSS for the layout */
+
+            /* this is a CSS comment
+    to uncomment a line of CSS, remove the * and the /
+    before and after the text */
+
+
+            /* the "container" is what wraps your entire website */
+            /* if you want something (like the header) to be Wider than
+    the other elements, you will need to move that div outside
+    of the container */
+            #container {
+                max-width: 975px;
+                /* this is the width of your layout! */
+                /* if you change the above value, scroll to the bottom
+      and change the media query according to the comment! */
+                margin: 0 auto;
+                /* this centers the entire page */
+            }
+
+            /* the area below is for all links on your page
+    EXCEPT for the navigation */
+            #container a {
+                color: #00ffb3;
+                font-weight: bold;
+                /* if you want to remove the underline
+      you can add a line below here that says:
+      text-decoration:none; */
+            }
+            
+        </style>
+
+  </body>
+
+<script>
+    // add classes for mobile navigation toggling
+    var CSbody = document.querySelector("body");
+    const CSnavbarMenu = document.querySelector("#navigation");
+    const CShamburgerMenu = document.querySelector("#navigation .cs-toggle");
+
+    CShamburgerMenu.addEventListener('click', function() {
+        CShamburgerMenu.classList.toggle("cs-active");
+        CSnavbarMenu.classList.toggle("cs-active");
+        CSbody.classList.toggle("cs-open");
+        // run the function to check the aria-expanded value
+        ariaExpanded();
+    });
+
+    // checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not 
+    function ariaExpanded() {
+        const csUL = document.querySelector('#cs-expanded');
+        const csExpanded = csUL.getAttribute('aria-expanded');
+
+        if (csExpanded === 'false') {
+            csUL.setAttribute('aria-expanded', 'true');
+        } else {
+            csUL.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    // mobile nav dropdown code if needed
+    const dropDowns = Array.from(document.querySelectorAll('#navigation .cs-dropdown'));
+        for (const item of dropDowns) {
+            const onClick = () => {
+            item.classList.toggle('cs-active')
+        }
+        item.addEventListener('click', onClick)
+        }
+                                
+</script>
+</html>
